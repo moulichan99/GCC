@@ -44,9 +44,25 @@ scp /home/vm1/Desktop/source.txt vm2@10.6.18.132:/home/vm2/Desktop/
 -------------------------------------
 
 Expt 6: Eucalyptus
+noproxy -> localhost:8443 -> add exception -> download credintials
+scp euca2-admin-x509.zip cloud@ip_address:/home/
 
-euca-create-volume -U url -I accessKey -S secretKey --size 1 -Z clustername
-euca-describe-volumes -U url -I accessKey -S secretKey
+cloudcontroller:
+mkdir -p ~/.euca
+chmod 700 ~/.euca
+mv euca2-admin-x509.zip ~/.euca
+cd ~/.euca
+unzip euca2-admin-x509.zip
+source eucarc
+nano eucarc
+
+sudo apt-get install euca2ools
+euca-create-volume --size 1 -Z clustername
+euca-describe-volumes
+
+euca-create-snapshots vol-id
+
+euca-delete-volume vol-if
 
 -------------------------------------
 
@@ -56,6 +72,10 @@ wget -q -O- https://downloads.opennebula.org/repo/repo.key | sudo apt-key add -
 sudo apt-get update
 sudo apt install opennebula opennebula-sunstone opennebula-gate opennebula-flow
 sudo /usr/share/one/install_gems
+
+rm /var/lib/apt/lists/lock
+rm /var/cache/apt/archives/lock
+rm /var/lib/dpkg/lock
 
 sudo cat ~/.one/one_auth
 
@@ -129,7 +149,7 @@ export HADOOP_MAPRED_HOME=$HADOOP_INSTALL
 export HADOOP_COMMON_HOME=$HADOOP_INSTALL
 export HADOOP_HDFS_HOME=$HADOOP_INSTALL
 export YARN_HOME=$HADOOP_INSTALL
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native export HADOOP_OPTS=ì-Djava.library.path=$HADOOP_HOME/libî
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native export HADOOP_OPTS=‚Äú-Djava.library.path=$HADOOP_HOME/lib‚Äù
 export HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
