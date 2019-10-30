@@ -13,7 +13,7 @@ ex2:
 
 1) java -> java class libray 
 2) new -> axis2service from java
-3) adminstration console select the axis2.war create application 
+3) adminstration console , Application -> deploy -> select the axis2.war create application 
 4) launch -> link -> username,passwd
 5) upload service -> build AAR file
 6) change AAR File --> 2004/... into ns
