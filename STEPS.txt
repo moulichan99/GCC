@@ -1,0 +1,22 @@
+ex1:
+
+1) Test -> deploy -> test webservice 
+
+2) create new project -> webservice client -> WSDL url(change ?TESTER into ?WSDL)
+
+3) create 2 jsp index.jsp , Arithmetic.jsp by new -> jsp file in source package 
+
+4) click RUN
+
+
+ex2:
+
+1) java -> java class libray 
+2) new -> axis2service from java
+3) adminstration console select the axis2.war create application 
+4) launch -> link -> username,passwd
+5) upload service -> build AAR file
+6) change AAR File --> 2004/... into ns
+7) available services -> deploy manually
+8) javafx -> javafxml application
+9) new -> newwebserviceclient -> drag and drop
